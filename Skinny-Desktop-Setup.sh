@@ -15,7 +15,7 @@ echo "deb http://deb.debian.org/debian/ testing-updates main contrib non-free" >
 apt-get update -y
 apt-get upgrade -y
 
-apt-get install -y curl xorg alsa-utils
+apt-get install -y curl xorg alsa-utils zstd
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
 tar xvf Suckless-Software.tar.gz
 mv ./Suckless-Software/dwm /usr/local/bin/dwm
