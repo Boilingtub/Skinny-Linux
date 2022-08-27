@@ -18,7 +18,7 @@ apt-get upgrade -y
 apt-get install -y doas linux-image-amd64
 apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
-apt-get purge -y linux-image-5.1
+apt-get purge -y linux-image-5.10.0-16-amd64
 
 apt-get install -y curl xorg alsa-utils zstd
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
@@ -85,8 +85,8 @@ apt-get install -y doas linux-image-amd64
 apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
-apt-get purge -y vim-common emacsen-common nano
-apt-get install -y nvim
+apt-get purge -y vim-common emacsen-common nano python3
+apt-get install -y neovim
 apt-get autoremove -y
 
 rm Suckless-Software.tar.gz
