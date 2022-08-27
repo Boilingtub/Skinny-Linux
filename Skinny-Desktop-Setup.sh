@@ -15,6 +15,11 @@ echo "deb http://deb.debian.org/debian/ testing-updates main contrib non-free" >
 apt-get update -y
 apt-get upgrade -y
 
+apt-get install -y doas linux-image-amd64
+apt-get autoremove -y
+apt-get purge -y linux-image-5.10.0-17-amd64
+apt-get purge -y linux-image-5.1
+
 apt-get install -y curl xorg alsa-utils zstd
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
 tar xvf Suckless-Software.tar.gz
@@ -73,9 +78,15 @@ mv ./Skinny-Linux-applications/Shutdown.desktop        /usr/share/applications/S
 mv ./Skinny-Linux-applications/Restart.desktop         /usr/share/applications/Restart.desktop
 mv ./Skinny-Linux-applications/Run-In-Terminal.desktop /usr/share/applications/Run-In-Terminal.desktop
 mv ./Skinny-Linux-applications/Terminal.desktop        /usr/share/applications/Terminal.desktop
-mv ./Skinny-Linux-applications/Shutdown.directory      /usr/share/Shutdown.directory
+mv ./Skinny-Linux-applications/Shutdown.directory      /usr/share/desktop-directories:/Shutdown.directory
 mv ./Skinny-Linux-applications/lxde-applications.menu  /etc/xdg/menus/lxde-applications.menu
 
+apt-get install -y doas linux-image-amd64
+apt-get autoremove -y
+apt-get purge -y linux-image-5.10.0-17-amd64
+apt-get purge -y linux-image-5.10.0-16-amd64
+apt-get purge -y vim-common emacsen-common nano
+apt-get install -y nvim
 apt-get autoremove -y
 
 rm Suckless-Software.tar.gz
@@ -91,3 +102,4 @@ rm Skinny-Linux-theme.tar.gz
 rm -dr Skinny-Linux-theme
 
 rm Skinny-Desktop-Setup.sh
+
