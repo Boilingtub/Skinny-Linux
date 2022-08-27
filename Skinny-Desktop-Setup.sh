@@ -63,6 +63,15 @@ mv ./Skinny-Linux-icons/Shutdown-icon.png      /home/${USER}/.icons/Shutdown-ico
 mv ./Skinny-Linux-icons/terminal-icon.png      /home/${USER}/.icons/terminal-icon.png
 mv ./Skinny-Linux-icons/root-terminal-icon.png /home/${USER}/.icons/root-terminal-icon.png
 
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/applications.tar.gz
+tar xvf applications.tar.gz
+
+mv ./applications/alsamixer.desktop /usr/share/applications/alsamixer.desktop
+mv ./applications/Shutdown.desktop /usr/share/applications/Shutdown.desktop
+mv ./applications/Restart.desktop /usr/share/applications/Restart.desktop
+mv ./applications/Run-In-Terminal.desktop /usr/share/applications/Run-In-Terminal.desktop
+mv ./applications/Terminal.desktop /usr/share/applications/Terminal.desktop
+
 
 
 
