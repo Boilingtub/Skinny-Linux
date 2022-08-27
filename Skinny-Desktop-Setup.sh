@@ -39,18 +39,18 @@ echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 apt-get install -y pcmanfm lxappearance
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-theme.tar.gz
-tar xvf Skinny-Linux-theme.tar.gz
+tar xf Skinny-Linux-theme.tar.gz
 
-mv ./Skinny-Linux-Theme/.gtkrc-2.0 /home/${USER}/.gtkrc-2.0
+mv ./Skinny-Linux-theme/.gtkrc-2.0 /home/${USER}/.gtkrc-2.0
 if [ ! -d "/usr/share/themes"]
 then
 	mkdir /usr/share/themes
 fi
 
-mv ./Skinny-Linux-Theme/Breeze-dark-gtk /usr/share/themes/Breeze-dark-gtk
+mv ./Skinny-Linux-theme/Breeze-dark-gtk /usr/share/themes/Breeze-dark-gtk
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-icons.tar.gz
-tar xvf Skinny-Linux-icons.tar.gz
+tar xf Skinny-Linux-icons.tar.gz
 
 if [! -d "/usr/share/icons"]
 then
@@ -66,7 +66,7 @@ mv ./Skinny-Linux-icons/terminal-icon.png      /usr/share/icons/terminal-icon.pn
 mv ./Skinny-Linux-icons/root-terminal-icon.png /usr/share/icons/root-terminal-icon.png
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-applications.tar.gz
-tar xvf Skinny-Linux-applications.tar.gz
+tar xf Skinny-Linux-applications.tar.gz
 
 mv ./Skinny-Linux-applications/alsamixer.desktop       /usr/share/applications/alsamixer.desktop
 mv ./Skinny-Linux-applications/Shutdown.desktop        /usr/share/applications/Shutdown.desktop
