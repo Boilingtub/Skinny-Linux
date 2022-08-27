@@ -23,6 +23,7 @@ mv ./Suckless-Software/st /usr/local/bin/st
 mv ./Suckless-Software/dmenu /usr/local/bin/dmenu
 mv ./Suckless-Software/dmenu_run /usr/local/bin/dmenu_run
 mv ./Suckless-Software/dmenu_path /usr/local/bin/dmenu_path
+mv ./Suckless-Software/stest /usr/local/bin/stest
 
 if [ $USER != "root" ] ; then
 echo -e "exec dwm" >> /home/${USER}/.xinitrc
