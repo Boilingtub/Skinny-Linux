@@ -38,52 +38,56 @@ echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 
 apt-get install -y pcmanfm lxappearance
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-Theme.tar.gz
-tar xvf Skinny-Linux-Theme.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-theme.tar.gz
+tar xvf Skinny-Linux-theme.tar.gz
 
 mv ./Skinny-Linux-Theme/.gtkrc-2.0 /home/${USER}/.gtkrc-2.0
-if [ ! -d "/home/${USER}/.themes"]
+if [ ! -d "/usr/share/themes"]
 then
-	mkdir /home/${USER}/.themes
+	mkdir /usr/share/themes
 fi
 
-mv ./Skinny-Linux-Theme/Breeze-dark-gtk /home/${USER}/.themes/Breeze-dark-gtk
+mv ./Skinny-Linux-Theme/Breeze-dark-gtk /usr/share/themes/Breeze-dark-gtk
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-icons.tar.gz
 tar xvf Skinny-Linux-icons.tar.gz
 
-if [! -d "/home/${USER}/.icons"]
+if [! -d "/usr/share/icons"]
 then
-	mkdir /home/${USER}/.icons
+	mkdir /usr/share/icons
 fi
 
-mv ./Skinny-Linux-icons/Vimix                  /home/${USER}/.icons/Vimix
-mv ./Skinny-Linux-icons/Vimix-dark             /home/${USER}/.icons/Vimix-dark
-mv ./Skinny-Linux-icons/alsamixer-icon.png     /home/${USER}/.icons/alsamixer-icon.png
-mv ./Skinny-Linux-icons/Restart-icon.png       /home/${USER}/.icons/Restart-icon.png
-mv ./Skinny-Linux-icons/Shutdown-icon.png      /home/${USER}/.icons/Shutdown-icon.png
-mv ./Skinny-Linux-icons/terminal-icon.png      /home/${USER}/.icons/terminal-icon.png
-mv ./Skinny-Linux-icons/root-terminal-icon.png /home/${USER}/.icons/root-terminal-icon.png
+mv ./Skinny-Linux-icons/Vimix                  /usr/share/icons/Vimix
+mv ./Skinny-Linux-icons/Vimix-dark             /usr/share/icons/Vimix-dark
+mv ./Skinny-Linux-icons/alsamixer-icon.png     /usr/share/icons/alsamixer-icon.png
+mv ./Skinny-Linux-icons/Restart-icon.png       /usr/share/icons/Restart-icon.png
+mv ./Skinny-Linux-icons/Shutdown-icon.png      /usr/share/icons/Shutdown-icon.png
+mv ./Skinny-Linux-icons/terminal-icon.png      /usr/share/icons/terminal-icon.png
+mv ./Skinny-Linux-icons/root-terminal-icon.png /usr/share/icons/root-terminal-icon.png
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/applications.tar.gz
-tar xvf applications.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-applications.tar.gz
+tar xvf Skinny-Linux-applications.tar.gz
 
-mv ./applications/alsamixer.desktop /usr/share/applications/alsamixer.desktop
-mv ./applications/Shutdown.desktop /usr/share/applications/Shutdown.desktop
-mv ./applications/Restart.desktop /usr/share/applications/Restart.desktop
-mv ./applications/Run-In-Terminal.desktop /usr/share/applications/Run-In-Terminal.desktop
-mv ./applications/Terminal.desktop /usr/share/applications/Terminal.desktop
-
+mv ./Skinny-Linux-applications/alsamixer.desktop       /usr/share/applications/alsamixer.desktop
+mv ./Skinny-Linux-applications/Shutdown.desktop        /usr/share/applications/Shutdown.desktop
+mv ./Skinny-Linux-applications/Restart.desktop         /usr/share/applications/Restart.desktop
+mv ./Skinny-Linux-applications/Run-In-Terminal.desktop /usr/share/applications/Run-In-Terminal.desktop
+mv ./Skinny-Linux-applications/Terminal.desktop        /usr/share/applications/Terminal.desktop
+mv ./Skinny-Linux-applications/Shutdown.directory      /usr/share/Shutdown.directory
+mv ./Skinny-Linux-applications/lxde-applications.menu  /etc/xdg/menus/lxde-applications.menu
 
 apt-get autoremove -y
 
-rm applications.tar.gz
-rm -dr applications
+rm Suckless-Software.tar.gz
+rm -dr Suckless-Software
+
+rm Skinny-Linux-applications.tar.gz
+rm -dr Skinny-Linux-applications
 
 rm Skinny-Linux-icons.tar.gz
 rm -dr Skinny-Linux-icons
 
-rm Skinny-Linux-Theme.tar.gz
-rm -dr Skinny-Linux-Theme
+rm Skinny-Linux-theme.tar.gz
+rm -dr Skinny-Linux-theme
 
 rm Skinny-Desktop-Setup.sh
