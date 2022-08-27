@@ -28,12 +28,10 @@ mv ./Suckless-Software/stest /usr/local/bin/stest
 if [ $USER != "root" ] ; then
 echo "exec dwm" >> /home/${USER}/.xinitrc
 echo "TERM=xterm" >> /home/${USER}/.bashrc
-echo "if [ -d "usr/local/sbin" ] ; then\n   PATH=\"usr/local/sbin:$PATH\"\nfi\"" >> /home/${USER}/.profile
-echo "if [ -d \"/sbin\" ] ; then\n    PATH=\"/sbin:$PATH\"\nfi\"" >> /home/${USER}/.profile
-echo "if [[ \"$(tty)\" == \"/dev/tty1\" ]]\nthen\n        startx\nfi\"" >> /home/${USER}/.profile
+echo "if [ -d "usr/local/sbin" ] ; then\n   PATH=\"usr/local/sbin:$PATH\"\nfi" >> /home/${USER}/.profile
+echo "if [ -d \"/sbin\" ] ; then\n    PATH=\"/sbin:$PATH\"\nfi" >> /home/${USER}/.profile
+echo "if [[ \"$(tty)\" == \"/dev/tty1\" ]]\nthen\n        startx\nfi" >> /home/${USER}/.profile
 fi
 
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
-
-
