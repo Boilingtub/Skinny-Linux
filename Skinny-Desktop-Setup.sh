@@ -35,3 +35,35 @@ fi
 
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
+
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-Theme.tar.gz
+tar xvf Skinny-Linux-Theme.tar.gz
+
+mv ./Skinny-Linux-Theme/.gtkrc-2.0 /home/${USER}/.gtkrc-2.0
+if [ ! -d "/home/${USER}/.themes"]
+then
+	mkdir /home/${USER}/.themes
+fi
+
+mv ./Skinny-Linux-Theme/Breeze-dark-gtk /home/${USER}/.themes/Breeze-dark-gtk
+
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-icons.tar.gz
+tar xvf Skinny-Linux-icons.tar.gz
+
+if [! -d "/home/${USER}/.icons"]
+then
+	mkdir /home/${USER}/.icons
+fi
+
+mv ./Skinny-Linux-icons/Vimix                  /home/${USER}/.icons/Vimix
+mv ./Skinny-Linux-icons/Vimix-dark             /home/${USER}/.icons/Vimix-dark
+mv ./Skinny-Linux-icons/alsamixer-icon.png     /home/${USER}/.icons/alsamixer-icon.png
+mv ./Skinny-Linux-icons/Restart-icon.png       /home/${USER}/.icons/Restart-icon.png
+mv ./Skinny-Linux-icons/Shutdown-icon.png      /home/${USER}/.icons/Shutdown-icon.png
+mv ./Skinny-Linux-icons/terminal-icon.png      /home/${USER}/.icons/terminal-icon.png
+mv ./Skinny-Linux-icons/root-terminal-icon.png /home/${USER}/.icons/root-terminal-icon.png
+
+
+
+
+
