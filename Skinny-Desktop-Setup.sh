@@ -36,6 +36,8 @@ fi
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 
+apt-get install -y pcmanfm lxappearance
+
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-Theme.tar.gz
 tar xvf Skinny-Linux-Theme.tar.gz
 
@@ -73,6 +75,15 @@ mv ./applications/Run-In-Terminal.desktop /usr/share/applications/Run-In-Termina
 mv ./applications/Terminal.desktop /usr/share/applications/Terminal.desktop
 
 
+apt-get autoremove -y
 
+rm applications.tar.gz
+rm -dr applications
 
+rm Skinny-Linux-icons.tar.gz
+rm -dr Skinny-Linux-icons
 
+rm Skinny-Linux-Theme.tar.gz
+rm -dr Skinny-Linux-Theme
+
+rm Skinny-Desktop-Setup.sh
