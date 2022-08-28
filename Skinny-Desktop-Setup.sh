@@ -12,6 +12,8 @@ echo "deb http://deb.debian.org/debian/ testing main contrib non-free" >> /etc/a
 echo "deb http://security.debian.org/debian-security testing-security main contrib non-free" >> /etc/apt/sources.list.d/testing.list
 echo "deb http://deb.debian.org/debian/ testing-updates main contrib non-free" >> /etc/apt/sources.list.d/testing.list
 
+apt-get purge -y vim-common emacsen-common nano #python3
+
 apt-get update -y
 apt-get upgrade -y
 
@@ -88,7 +90,7 @@ apt-get install -y doas linux-image-amd64
 apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
-apt-get purge -y vim-common emacsen-common nano #python3
+apt-get purge -y vim-common emacsen-common nano python3
 apt-get install -y neovim lua5.4
 apt-get autoremove -y
 apt clean
