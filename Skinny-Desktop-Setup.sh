@@ -24,7 +24,7 @@ apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
 
-apt-get install -y curl xorg libwacom-common- alsa-utils
+apt-get install -y curl xorg alsa-utils
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
 tar xvf Suckless-Software.tar.gz
