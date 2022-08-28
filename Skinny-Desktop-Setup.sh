@@ -19,7 +19,8 @@ apt-get install zstd
 apt-get update -y
 apt-get upgrade -y
 
-apt-get install -y doas linux-image-amd64
+apt-get install -y doas
+echo "permit persist ${USER} as root" >> /etc/doas.conf
 apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
@@ -85,7 +86,7 @@ mv ./Skinny-Linux-applications/Restart.desktop         /usr/share/applications/R
 mv ./Skinny-Linux-applications/Run-In-Terminal.desktop /usr/share/applications/Run-In-Terminal.desktop
 mv ./Skinny-Linux-applications/Terminal.desktop        /usr/share/applications/Terminal.desktop
 mv ./Skinny-Linux-applications/lua.desktop             /usr/share/applications/lua.desktop
-mv ./Skinny-Linux-applications/Shutdown.directory      /usr/share/desktop-directories:/Shutdown.directory
+mv ./Skinny-Linux-applications/Shutdown.directory      /usr/share/desktop-directories/Shutdown.directory
 mv ./Skinny-Linux-applications/lxde-applications.menu  /etc/xdg/menus/lxde-applications.menu
 
 apt-get install -y doas linux-image-amd64
