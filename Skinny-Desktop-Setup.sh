@@ -20,7 +20,8 @@ apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
 
-apt-get install -y curl xorg alsa-utils zstd
+apt-get install -y curl xorg libwacom-common- alsa-utils zstd
+
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
 tar xvf Suckless-Software.tar.gz
 mv ./Suckless-Software/dwm /usr/local/bin/dwm
@@ -87,7 +88,7 @@ apt-get install -y doas linux-image-amd64
 apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
-apt-get purge -y vim-common emacsen-common nano python3
+apt-get purge -y vim-common emacsen-common nano #python3
 apt-get install -y neovim lua5.4
 apt-get autoremove -y
 apt clean
