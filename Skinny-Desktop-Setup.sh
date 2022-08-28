@@ -90,6 +90,7 @@ apt-get purge -y linux-image-5.10.0-16-amd64
 apt-get purge -y vim-common emacsen-common nano python3
 apt-get install -y neovim lua5.4
 apt-get autoremove -y
+apt clean
 
 rm Suckless-Software.tar.gz
 rm -dr Suckless-Software
