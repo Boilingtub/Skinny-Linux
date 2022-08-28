@@ -69,6 +69,7 @@ mv ./Skinny-Linux-icons/Restart-icon.png       /usr/share/icons/Restart-icon.png
 mv ./Skinny-Linux-icons/Shutdown-icon.png      /usr/share/icons/Shutdown-icon.png
 mv ./Skinny-Linux-icons/terminal-icon.png      /usr/share/icons/terminal-icon.png
 mv ./Skinny-Linux-icons/root-terminal-icon.png /usr/share/icons/root-terminal-icon.png
+mv ./Skinny-Linux-icons/lua-icon.svg /usr/share/icons/lua-icon.svg
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-applications.tar.gz
 tar xf Skinny-Linux-applications.tar.gz
@@ -78,6 +79,7 @@ mv ./Skinny-Linux-applications/Shutdown.desktop        /usr/share/applications/S
 mv ./Skinny-Linux-applications/Restart.desktop         /usr/share/applications/Restart.desktop
 mv ./Skinny-Linux-applications/Run-In-Terminal.desktop /usr/share/applications/Run-In-Terminal.desktop
 mv ./Skinny-Linux-applications/Terminal.desktop        /usr/share/applications/Terminal.desktop
+mv ./Skinny-Linux-applications/lua.desktop             /usr/share/applications/lua.desktop
 mv ./Skinny-Linux-applications/Shutdown.directory      /usr/share/desktop-directories:/Shutdown.directory
 mv ./Skinny-Linux-applications/lxde-applications.menu  /etc/xdg/menus/lxde-applications.menu
 
@@ -86,7 +88,7 @@ apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
 apt-get purge -y vim-common emacsen-common nano python3
-apt-get install -y neovim
+apt-get install -y neovim lua5.4
 apt-get autoremove -y
 
 rm Suckless-Software.tar.gz
