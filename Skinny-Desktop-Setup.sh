@@ -14,6 +14,8 @@ echo "deb http://deb.debian.org/debian/ testing-updates main contrib non-free" >
 
 apt-get purge -y vim-common emacsen-common nano #python3
 
+apt-get install zstd
+
 apt-get update -y
 apt-get upgrade -y
 
@@ -22,7 +24,7 @@ apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
 
-apt-get install -y curl xorg libwacom-common- alsa-utils zstd
+apt-get install -y curl xorg libwacom-common- alsa-utils
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
 tar xvf Suckless-Software.tar.gz
