@@ -47,7 +47,7 @@ fi
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 
-apt-get install -y pcmanfm lxappearance
+apt-get install -y pcmanfm lxappearance lxde-icon-theme-
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-theme.tar.gz
 tar xf Skinny-Linux-theme.tar.gz
