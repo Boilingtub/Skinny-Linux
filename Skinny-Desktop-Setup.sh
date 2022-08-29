@@ -47,7 +47,7 @@ fi
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 
-apt-get install -y pcmanfm lxappearance lxde-icon-theme-
+apt-get install -y pcmanfm lxappearance
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-theme.tar.gz
 tar xf Skinny-Linux-theme.tar.gz
@@ -88,12 +88,14 @@ mv ./Skinny-Linux-applications/Terminal.desktop        /usr/share/applications/T
 mv ./Skinny-Linux-applications/lua.desktop             /usr/share/applications/lua.desktop
 mv ./Skinny-Linux-applications/Shutdown.directory      /usr/share/desktop-directories/Shutdown.directory
 mv ./Skinny-Linux-applications/lxde-applications.menu  /etc/xdg/menus/lxde-applications.menu
+mv ./Skinny-Linux-applications/libfm.conf              /home/${USER}/.config/libfm/libfm.conf
+
 
 apt-get install -y doas linux-image-amd64
 apt-get autoremove -y
 apt-get purge -y linux-image-5.10.0-17-amd64
 apt-get purge -y linux-image-5.10.0-16-amd64
-apt-get purge -y vim-common emacsen-common nano python3
+apt-get purge -y vim-common emacsen-common nano python3 lxde-icon-theme
 apt-get install -y neovim lua5.4
 apt-get autoremove -y
 apt clean
