@@ -34,7 +34,7 @@ echo "permit persist ${USER} as root" >> /etc/doas.conf
 
 #install customizations form github
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
-tar xvf Suckless-Software.tar.gz
+tar xf Suckless-Software.tar.gz
 chmod +x ./Suckless-Software/Suckless-Software-Setup.sh
 ./Suckless-Software/Suckless-Software-Setup.sh
 
