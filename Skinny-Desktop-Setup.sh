@@ -45,7 +45,7 @@ chmod +x ./Skinny-Linux-theme/Skinny-theme-setup.sh
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-icons.tar.gz
 tar xf Skinny-Linux-icons.tar.gz
-chmod ./Skinny-Linux-icons/Skinny-icons-setup.sh
+chmod +x ./Skinny-Linux-icons/Skinny-icons-setup.sh
 ./Skinny-Linux-icons/Skinny-icons-setup.sh
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-applications.tar.gz
@@ -82,7 +82,7 @@ rm Skinny-Linux-theme.tar.gz
 rm -dr Skinny-Linux-theme
 
 rm Skinny-Neovim.tar.gz
-rm -dr Skinny-Neovim.tar.gz
+rm -dr Skinny-Neovim
 
 rm Skinny-Desktop-Setup.sh
 
