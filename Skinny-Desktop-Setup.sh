@@ -58,8 +58,13 @@ tar xf Skinny-Neovim.tar.gz
 chmod +x ./Skinny-Neovim/Skinny-neovim-setup.sh
 ./Skinny-Neovim/Skinny-neovim-setup.sh
 
-#remove and clean system
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-fonts.tar.gz
+tar xf Skinny-Linux-fonts.tar.gz
+chmod +x ./Skinny-Neovim/Skinny-fonts-setup.sh
+./Skinny-Neovim/Skinny-fonts-setup.sh
 
+#remove and clean system
+apt-get purge -y --autoremove python3 lxde-icon-theme
 apt-get autoremove -yq
 apt clean
 
