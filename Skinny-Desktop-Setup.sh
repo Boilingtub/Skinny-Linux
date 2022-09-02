@@ -90,5 +90,8 @@ rm -dr Skinny-Linux-theme
 rm Skinny-Neovim.tar.gz
 rm -dr Skinny-Neovim
 
+rm Skinny-Linux-fonts.tar.gz
+rm -dr Skinny-Linux-fonts       
+
 rm Skinny-Desktop-Setup.sh
 
