@@ -81,5 +81,8 @@ rm -dr Skinny-Linux-icons
 rm Skinny-Linux-theme.tar.gz
 rm -dr Skinny-Linux-theme
 
+rm Skinny-Neovim.tar.gz
+rm -dr Skinny-Neovim.tar.gz
+
 rm Skinny-Desktop-Setup.sh
 
