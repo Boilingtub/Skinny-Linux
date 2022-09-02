@@ -25,7 +25,7 @@ apt-get upgrade -yq
 apt-get autoremove -yq
 apt-get purge -yq linux-image-5.10.0-17-amd64
 apt-get purge -yq linux-image-5.10.0-16-amd64
-export DEBIAN_FRONTEND=interactive
+export DEBIAN_FRONTEND=dialog
 
 #install wanted needed packages
 apt-get install -y curl xorg alsa-utils pcmanfm lxappearance doas neovim lua5.4
@@ -59,6 +59,7 @@ chmod +x ./Skinny-Neovim/Skinny-neovim-setup.sh
 ./Skinny-Neovim/Skinny-neovim-setup.sh
 
 #remove and clean system
+
 apt-get autoremove -yq
 apt clean
 
