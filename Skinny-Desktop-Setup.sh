@@ -20,11 +20,12 @@ apt-get install -y zstd
 #update system and remove kernels
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -yq
-apt-get upgrade -yq
 
 apt-get autoremove -yq
 apt-get purge -yq linux-image-5.10.0-17-amd64
 apt-get purge -yq linux-image-5.10.0-16-amd64
+
+apt-get upgrade -yq
 export DEBIAN_FRONTEND=dialog
 
 #install wanted needed packages
@@ -67,8 +68,8 @@ chmod +x ./Skinny-Neovim/Skinny-neovim-setup.sh
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-fonts.tar.gz
 tar xf Skinny-Linux-fonts.tar.gz
-chmod +x ./Skinny-Neovim/Skinny-fonts-setup.sh
-./Skinny-Neovim/Skinny-fonts-setup.sh
+chmod +x ./Skinny-Linux-fonts/Skinny-fonts-setup.sh
+./Skinny-Linux-fonts/Skinny-fonts-setup.sh
 
 #remove and clean system
 apt-get purge -y --autoremove python3 lxde-icon-theme
