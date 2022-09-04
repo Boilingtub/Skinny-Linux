@@ -32,6 +32,13 @@ apt-get install -y curl xorg alsa-utils pcmanfm lxappearance doas neovim lua5.4
 
 echo "permit persist ${USER} as root" >> /etc/doas.conf
 
+#set sbin to be accessable
+echo "if [ -d "usr/local/sbin" ] ; then\n   PATH=\"usr/local/sbin:$PATH\"\nfi" >> /home/${USER}/.profile
+echo "if [ -d \"/sbin\" ] ; then\n    PATH=\"/sbin:$PATH\"\nfi" >> /home/${USER}/.profile
+echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
+echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
+
+
 #install customizations form github
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
 tar xf Suckless-Software.tar.gz
@@ -67,12 +74,6 @@ chmod +x ./Skinny-Neovim/Skinny-fonts-setup.sh
 apt-get purge -y --autoremove python3 lxde-icon-theme
 apt-get autoremove -yq
 apt clean
-
-#set sbin to be accessable
-echo "if [ -d "usr/local/sbin" ] ; then\n   PATH=\"usr/local/sbin:$PATH\"\nfi" >> /home/${USER}/.profile
-echo "if [ -d \"/sbin\" ] ; then\n    PATH=\"/sbin:$PATH\"\nfi" >> /home/${USER}/.profile
-echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
-echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 
 #remove github packages
 rm Suckless-Software.tar.gz
