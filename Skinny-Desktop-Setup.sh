@@ -29,7 +29,7 @@ apt-get upgrade -yq
 export DEBIAN_FRONTEND=dialog
 
 #install wanted needed packages
-apt-get install -y curl xorg alsa-utils pcmanfm lxappearance doas neovim lua5.4
+apt-get install -y curl xorg alsa-utils pcmanfm lxappearance doas neovim lua5.4 xwallpaper
 
 echo "permit persist ${USER} as root" >> /etc/doas.conf
 
