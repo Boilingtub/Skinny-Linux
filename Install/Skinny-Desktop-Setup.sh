@@ -41,32 +41,32 @@ echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 
 
 #install customizations form github
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Suckless-Software.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Suckless-Software.tar.gz
 tar xf Suckless-Software.tar.gz
 chmod +x ./Suckless-Software/Suckless-Software-Setup.sh
 ./Suckless-Software/Suckless-Software-Setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-theme.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-theme.tar.gz
 tar xf Skinny-Linux-theme.tar.gz
 chmod +x ./Skinny-Linux-theme/Skinny-theme-setup.sh
 ./Skinny-Linux-theme/Skinny-theme-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-icons.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-icons.tar.gz
 tar xf Skinny-Linux-icons.tar.gz
 chmod +x ./Skinny-Linux-icons/Skinny-icons-setup.sh
 ./Skinny-Linux-icons/Skinny-icons-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-applications.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-applications.tar.gz
 tar xf Skinny-Linux-applications.tar.gz
 chmod +x ./Skinny-Linux-applications/Skinny-applications-setup.sh
 ./Skinny-Linux-applications/Skinny-applications-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Neovim.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Neovim.tar.gz
 tar xf Skinny-Neovim.tar.gz
 chmod +x ./Skinny-Neovim/Skinny-neovim-setup.sh
 ./Skinny-Neovim/Skinny-neovim-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Skinny-Linux-fonts.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-fonts.tar.gz
 tar xf Skinny-Linux-fonts.tar.gz
 chmod +x ./Skinny-Linux-fonts/Skinny-fonts-setup.sh
 ./Skinny-Linux-fonts/Skinny-fonts-setup.sh
