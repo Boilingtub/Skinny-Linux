@@ -1,1 +1,0 @@
-This is built for X11 and x86-64 architecture
