@@ -1,0 +1,21 @@
+#! /bin/sh
+
+ScreenInfoLine=$( xrandr | grep 'connected' )
+Screen=${ScreenInfoLine%% *}
+
+if [ "$1" = "-set" ]; then
+  cp "${2}" ${HOME}/.wallpaper 
+  xwallpaper --output $Screen --stretch ${HOME}/.wallpaper
+elif [ "${1}" = "-reload" ]; then
+  xwallpaper --output $Screen --stretch ${HOME}/.wallpaper
+elif [ "${1}" = "-clear" ]; then
+  xwallpaper --clear
+elif [ "${1}" = "-remove"]; then
+  xwallpaper --clear
+  rm ${HOME}/.wallpaper
+else
+  echo "wallpaper -set <PATH-TO-FILE>"
+  echo "wallpaper -reload"
+  echo "wallpaper -clear"
+  echo "wallpaper -remove"
+fi
