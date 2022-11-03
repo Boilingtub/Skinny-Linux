@@ -56,10 +56,10 @@ tar xf Skinny-Linux-icons.tar.gz
 chmod +x ./Skinny-Linux-icons/Skinny-icons-setup.sh
 ./Skinny-Linux-icons/Skinny-icons-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-applications.tar.gz
-tar xf Skinny-Linux-applications.tar.gz
-chmod +x ./Skinny-Linux-applications/Skinny-applications-setup.sh
-./Skinny-Linux-applications/Skinny-applications-setup.sh
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-appmenu.tar.gz
+tar xf Skinny-Linux-appmenu.tar.gz
+chmod +x ./Skinny-Linux-applications/Skinny-appmenu-setup.sh
+./Skinny-Linux-applications/Skinny-appmenu-setup.sh
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Neovim.tar.gz
 tar xf Skinny-Neovim.tar.gz
@@ -80,7 +80,7 @@ apt clean
 rm Suckless-Software.tar.gz
 rm -dr Suckless-Software
 
-rm Skinny-Linux-applications.tar.gz
+rm Skinny-Linux-appmenu.tar.gz
 rm -dr Skinny-Linux-applications
 
 rm Skinny-Linux-icons.tar.gz
