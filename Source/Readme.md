@@ -1,2 +1,0 @@
-# Skinny-Linux Source files
-
