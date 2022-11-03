@@ -41,27 +41,27 @@ echo "export \"PATH=$PATH:/usr/local/sbin\"" >> /root/.profile
 
 
 #install customizations form github
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Suckless-Software.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/Suckless-Software.tar.gz
 tar xf Suckless-Software.tar.gz
 chmod +x ./Suckless-Software/Suckless-Software-Setup.sh
 ./Suckless-Software/Suckless-Software-Setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-theme.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/Skinny-Linux-theme.tar.gz
 tar xf Skinny-Linux-theme.tar.gz
 chmod +x ./Skinny-Linux-theme/Skinny-theme-setup.sh
 ./Skinny-Linux-theme/Skinny-theme-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-appmenu.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/Skinny-Linux-appmenu.tar.gz
 tar xf Skinny-Linux-appmenu.tar.gz
 chmod +x ./Skinny-Linux-applications/Skinny-appmenu-setup.sh
 ./Skinny-Linux-applications/Skinny-appmenu-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Neovim.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/Skinny-Neovim.tar.gz
 tar xf Skinny-Neovim.tar.gz
 chmod +x ./Skinny-Neovim/Skinny-neovim-setup.sh
 ./Skinny-Neovim/Skinny-neovim-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-fonts.tar.gz
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/Skinny-Linux-fonts.tar.gz
 tar xf Skinny-Linux-fonts.tar.gz
 chmod +x ./Skinny-Linux-fonts/Skinny-fonts-setup.sh
 ./Skinny-Linux-fonts/Skinny-fonts-setup.sh
