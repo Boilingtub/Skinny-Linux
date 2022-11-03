@@ -53,8 +53,8 @@ chmod +x ./Skinny-Linux-theme/Skinny-theme-setup.sh
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/Skinny-Linux-appmenu.tar.gz
 tar xf Skinny-Linux-appmenu.tar.gz
-chmod +x ./Skinny-Linux-applications/Skinny-appmenu-setup.sh
-./Skinny-Linux-applications/Skinny-appmenu-setup.sh
+chmod +x ./Skinny-Linux-appmenu/Skinny-appmenu-setup.sh
+./Skinny-Linux-appmenu/Skinny-appmenu-setup.sh
 
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/Skinny-Neovim.tar.gz
 tar xf Skinny-Neovim.tar.gz
