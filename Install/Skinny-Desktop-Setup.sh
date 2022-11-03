@@ -29,7 +29,7 @@ apt-get upgrade -yq
 export DEBIAN_FRONTEND=dialog
 
 #install wanted needed packages
-apt-get install -y curl xorg alsa-utils pcmanfm lxappearance doas neovim lua5.4 xwallpaper
+apt-get install -y curl xorg alsa-utils pcmanfm lxappearance mc jmtpfs doas neovim lua5.4 xwallpaper
 
 echo "permit persist ${USER} as root" >> /etc/doas.conf
 
@@ -51,11 +51,6 @@ tar xf Skinny-Linux-theme.tar.gz
 chmod +x ./Skinny-Linux-theme/Skinny-theme-setup.sh
 ./Skinny-Linux-theme/Skinny-theme-setup.sh
 
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-icons.tar.gz
-tar xf Skinny-Linux-icons.tar.gz
-chmod +x ./Skinny-Linux-icons/Skinny-icons-setup.sh
-./Skinny-Linux-icons/Skinny-icons-setup.sh
-
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/x86_64/raw/main/Skinny-Linux-appmenu.tar.gz
 tar xf Skinny-Linux-appmenu.tar.gz
 chmod +x ./Skinny-Linux-applications/Skinny-appmenu-setup.sh
@@ -72,7 +67,7 @@ chmod +x ./Skinny-Linux-fonts/Skinny-fonts-setup.sh
 ./Skinny-Linux-fonts/Skinny-fonts-setup.sh
 
 #remove and clean system
-apt-get purge -y --autoremove python3 lxde-icon-theme
+apt-get purge -y --autoremove sudo python3 lxde-icon-theme
 apt-get autoremove -yq
 apt clean
 
@@ -81,10 +76,7 @@ rm Suckless-Software.tar.gz
 rm -dr Suckless-Software
 
 rm Skinny-Linux-appmenu.tar.gz
-rm -dr Skinny-Linux-applications
-
-rm Skinny-Linux-icons.tar.gz
-rm -dr Skinny-Linux-icons
+rm -dr Skinny-Linux-appmenu
 
 rm Skinny-Linux-theme.tar.gz
 rm -dr Skinny-Linux-theme
