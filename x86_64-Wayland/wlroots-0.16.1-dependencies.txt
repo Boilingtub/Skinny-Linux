@@ -1,0 +1,42 @@
+#WLROOTS 0.16.1 DEPENDENCIES
+libwayland-server
+libwayland-server0
+libwayland-bin
+libwayland-dev
+libdrm-dev
+libxkbcommon-dev
+libudev-dev
+libpixman-1-dev
+wayland-protocols
+libegl-dev
+libgbm-dev
+libvulkan-dev
+libgles-dev
+hwdata
+libinput-dev
+libxcb-dri3-dev
+libxcb-present-dev
+libxcb-render-util0-dev
+libxcb-render-util0
+libxcb-shm0-dev
+libxcb-xinput-dev
+libseat-dev
+libavutil-dev libavcodec-dev libavformat-dev
+libpng-dev
+xwayland
+libxcb-composite0-dev
+libxcb-icccm4-dev
+libxcb-res4-dev
+glslang-tools
+
+#GPU DRIVER & FIRMWARE
+firmware-amd-graphics
+libdrm-amdgpu1
+
+#EXTRA CONFIG
+doas ldconfig
+doas usermod -aG render <User>
+
+#Extra necessery programs
+foot
+
