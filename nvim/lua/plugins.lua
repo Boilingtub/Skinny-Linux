@@ -4,6 +4,7 @@ require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+  use 'williamboman/mason.nvim' -- lsp package manager
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
