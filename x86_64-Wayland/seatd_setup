@@ -1,0 +1,5 @@
+sudo xbps-install -Su
+sudo xbps-install seatd
+sudo ln -s /etc/seatd /var/service
+usermod -a -G _seatd $USER
+sudo xbps-install mesa-dri wayland wlroots
