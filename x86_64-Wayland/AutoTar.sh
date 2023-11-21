@@ -10,4 +10,4 @@ tar czvf ./Compressed-Archives/wbg.tar.gz ./wbg
 tar czvf ./Compressed-Archives/wlr-randr.tar.gz ./wlr-randr
 tar czvf ./Compressed-Archives/yambar.tar.gz ./yambar
 tar czvf ./Compressed-Archives/FontAwesome.tar.gz ./FontAwesome
-tar czvf ./Compressed-Archives/libjpeg.tar.gz ./libjpeg
+#tar czvf ./Compressed-Archives/libjpeg.tar.gz ./libjpeg
