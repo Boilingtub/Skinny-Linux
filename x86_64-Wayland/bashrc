@@ -10,7 +10,7 @@ if [ $(tty) == "/dev/tty1" ]; then
 sudo wpa_supplicant -dd -B -i wlo1 -c /etc/wpa_supplicant.conf -D wext
 sudo dhcpcd
 
-export XDG_RUNTIME_DIR=/run/usr/$(id -u)
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
 sudo mkdir $XDG_RUNTIME_DIR
 sudo chown -R $USER:$USER $XDG_RUNTIME_DIR
 sudo chmod -R 700 $XDG_RUNTIME_DIR
