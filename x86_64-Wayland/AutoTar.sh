@@ -1,7 +1,7 @@
 #! /bin/bash
 
 cd "/home/hendrik/Skinny-Linux"
-tar czvf ./Compressed-Archives/HackFont.tar.gz ./HackFont
+tarq czvf ./Compressed-Archives/HackFont.tar.gz ./HackFont
 tar czvf ./Compressed-Archives/dwl.tar.gz ./dwl
 tar czvf ./Compressed-Archives/foot.tar.gz ./foot
 tar czvf ./Compressed-Archives/kickoff.tar.gz ./kickoff
