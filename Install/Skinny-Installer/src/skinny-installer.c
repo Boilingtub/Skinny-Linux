@@ -38,12 +38,16 @@ int installLoseFiles() {
 int createDirectories() {
     system("mkdir $HOME/.local");
     system("mkdir $HOME/.config");
+    system("mkdir $HOME/.cache");
 }
 
+int InstallextraPackages() {
+    system("sudo xbps-install htop firefox ");
+}
 
 int main() {
     printf("Starting Skinny-Linux Install\n");
-    char pkginstallcmd[] = "sudo xbps-install -Su curl font-awesome6 font-liberation-ttf dejavu-fonts-ttf dbus dbus-elogind elogind foot gvfs mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar zlib libavcodec libavutil openntpd libzstd";
+    char pkginstallcmd[] = "sudo xbps-install -Su curl font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot gvfs mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar libavcodec libavutil openntpd";
   
     system(pkginstallcmd);
     printf("completed package installation\n");
@@ -96,4 +100,5 @@ int main() {
     }
     installLoseFiles();  
     system("rm -rf skinny-installer");
+    system("sudo xbps-remove -Oo");
 }
