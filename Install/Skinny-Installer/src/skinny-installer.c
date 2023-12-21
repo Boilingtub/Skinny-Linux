@@ -14,16 +14,25 @@ int installTarArchive(char *ArchiveName) {
     strcat(InstallArchiveCmd , "/");
     strcat(InstallArchiveCmd, "install.sh");
 
-    char chmodCmd[1000] = "chmod +x";
+    char chmodCmd[1000] = "chmod +x ";
     strcat(chmodCmd , InstallArchiveCmd);
 
     system(chmodCmd);
     system(InstallArchiveCmd);
+
+    char removeArchive[1000] = "rm -rf ";
+    strcat(removeArchive , ArchiveName);
+    system(removeArchive);
+
+    strcat(removeArchive , ".tar.gz");
+    system(removeArchive);
 }
 
 int installLoseFiles() {
-    system("mv bashrc $HOME/.bashrc");
-    system("mv wpa_supplicant /etc/wpa_supplicant/wpa_supplicant");
+    printf("installing Lose Files\n");
+    system("mv bashrc /home/$USER/.bashrc");
+    system("sudo mv wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf");
+    
 }
 
 int createDirectories() {
@@ -34,7 +43,7 @@ int createDirectories() {
 
 int main() {
     printf("Starting Skinny-Linux Install\n");
-    char pkginstallcmd[] = "xbps-install -Su curl font-awesome6 font-liberation-ttf dejavu-fonts-ttf dbus dbus-elogind elogind foot gvfs mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar zlib libavcodec libavutil openntpd libzstd";
+    char pkginstallcmd[] = "sudo xbps-install -Su curl font-awesome6 font-liberation-ttf dejavu-fonts-ttf dbus dbus-elogind elogind foot gvfs mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar zlib libavcodec libavutil openntpd libzstd";
   
     system(pkginstallcmd);
     printf("completed package installation\n");
@@ -43,7 +52,7 @@ int main() {
     createDirectories();
     printf("finished Directory creation");
 
-    char symlinkfirst[] = "ln -s /etc/sv/";
+    char symlinkfirst[] = "sudo ln -s /etc/sv/";
     #define symlinkcount 8 
     char *symlinks[symlinkcount] = {"dhcpcd","elogind","dbus",
                         "openntpd","polkitd","tlp",
@@ -61,7 +70,7 @@ int main() {
 
     char curlfromgit[] = "curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/";
     #define gitTarArchivescount 8
-    char *gitTarArchives[gitTarArchivescount] = {"HackFont","bright","dwl",
+    char *gitTarArchives[gitTarArchivescount] = {"HackFont","bright","dwl-v0.4",
                          "foot","kickoff","wbg",
                          "wlr-randr","yambar"};
     char suffix[] = ".tar.gz";
@@ -86,4 +95,5 @@ int main() {
         system(downloadFile);
     }
     installLoseFiles();  
+    system("rm -rf skinny-installer");
 }
