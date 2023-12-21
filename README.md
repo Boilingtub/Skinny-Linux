@@ -6,7 +6,12 @@
 ```
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/skinny-install
 ```
-<p align="center">Run installer with</p>
+<p align="center">give installer executable premissions:</p>
+
+```
+chmod +x skinny-installer
+```
+<p align="center">Run installer with:</p>
 
 ```
 ./skinny-installer
