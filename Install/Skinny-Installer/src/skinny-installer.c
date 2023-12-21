@@ -32,6 +32,7 @@ int installLoseFiles() {
     printf("installing Lose Files\n");
     system("mv bashrc /home/$USER/.bashrc");
     system("sudo mv wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf");
+    system("wallpaper -set bootlogo.png");
     
 }
 
@@ -90,8 +91,8 @@ int main() {
         installTarArchive(gitTarArchives[i]);
     }
 
-    #define gitFilesCount 2
-    char *gitFiles[gitFilesCount] = {"bashrc" , "wpa_supplicant.conf"};
+    #define gitFilesCount 3
+    char *gitFiles[gitFilesCount] = {"bashrc" , "wpa_supplicant.conf", "bootlogo.png"};
     for(int i = 0; i < gitFilesCount; i++) {
         char downloadFile[] = "";
         strcat(downloadFile, curlfromgit);
