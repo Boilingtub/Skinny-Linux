@@ -7,6 +7,7 @@
 curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/skinny-install
 ```
 <p align="center">Run installer with</p>
+
 ```
 ./skinny-installer
 ```
