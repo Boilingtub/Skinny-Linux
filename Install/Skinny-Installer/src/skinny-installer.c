@@ -32,7 +32,7 @@ int installLoseFiles() {
     printf("installing Lose Files\n");
     system("mv bashrc /home/$USER/.bashrc");
     system("sudo mv wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf");
-    system("wallpaper -set bootlogo.png");
+    system("mv bootlogo.png .wallpaper");
     
 }
 
@@ -43,12 +43,12 @@ int createDirectories() {
 }
 
 int InstallextraPackages() {
-    system("sudo xbps-install htop firefox ");
+    system("sudo xbps-install htop firefox pcmanfm");
 }
 
 int main() {
     printf("Starting Skinny-Linux Install\n");
-    char pkginstallcmd[] = "sudo xbps-install -Su curl font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot gvfs mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar libavcodec libavutil openntpd";
+    char pkginstallcmd[] = "sudo xbps-install -Su curl font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar libavcodec libavutil openntpd";
   
     system(pkginstallcmd);
     printf("completed package installation\n");
