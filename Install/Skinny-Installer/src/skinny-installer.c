@@ -43,7 +43,7 @@ int createDirectories() {
 }
 
 int InstallextraPackages() {
-    system("sudo xbps-install htop firefox pcmanfm");
+    system("sudo xbps-install git htop firefox pcmanfm");
 }
 
 int main() {
