@@ -2,6 +2,25 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef enum bool{false , true} bool;
+
+bool getYesNo() {
+    char response;
+    while(true) {
+        response = getchar();
+        if(response == 'n' || response == 'N'){
+            return false;
+        }
+        else if(response == 'y' || response == 'Y'){
+            return true;
+        }
+        else {
+            printf("invalid input (y/n)\n"); 
+        }
+        
+    } 
+}
+
 int installTarArchive(char *ArchiveName) {
     printf("installing Tar-Archive %s \n",ArchiveName); 
     char ExtractArchiveCmd[1000] = "tar -xvf ";
@@ -43,12 +62,15 @@ int createDirectories() {
 }
 
 int InstallextraPackages() {
-    system("sudo xbps-install git htop firefox pcmanfm");
+    printf("whould you like to install non-essentail packages ? (Yes/No) \n >> ");
+    if(getYesNo() == true) {
+        system("sudo xbps-install -y htop firefox pcmanfm");
+    } 
 }
 
 int main() {
     printf("Starting Skinny-Linux Install\n");
-    char pkginstallcmd[] = "sudo xbps-install -Su curl font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar libavcodec libavutil openntpd";
+    char pkginstallcmd[] = "sudo xbps-install -y -Su curl tlp font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar libavcodec libavutil openntpd";
   
     system(pkginstallcmd);
     printf("completed package installation\n");
@@ -100,6 +122,19 @@ int main() {
         system(downloadFile);
     }
     installLoseFiles();  
+    InstallextraPackages();
+
     system("rm -rf skinny-installer");
     system("sudo xbps-remove -Oo");
+}
+
+int test_GetYesNo() {
+    bool choice = getYesNo();
+    if(choice == true) {
+        printf("chose yes");
+    }
+    else if(choice == false) {
+        printf("chose no");
+    }
+        
 }
