@@ -54,6 +54,7 @@ int installLoseFiles() {
     system("mv bootlogo.png .wallpaper");
     system("sudo mv issue /etc/issue");
     system("sudo mv default_grub /etc/default/grub");
+    system("sudo update-grub");
     
 }
 
