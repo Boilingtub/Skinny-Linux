@@ -4,7 +4,7 @@
 <p align="center">To download graphics environment installer:</p>
 
 ```
-curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/skinny-install
+curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/skinny-installer
 ```
 <p align="center">give installer executable premissions:</p>
 
