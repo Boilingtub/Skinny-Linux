@@ -99,7 +99,7 @@ int main() {
 
 
     char curlfromgit[] = "curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/";
-    #define gitTarArchivescount 8
+    #define gitTarArchivescount 7
     char *gitTarArchives[gitTarArchivescount] = {"HackFont","bright","dwl-v0.5",
                          "foot","wbg",
                          "wlr-randr","yambar"};
