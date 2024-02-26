@@ -67,7 +67,7 @@ void createDirectories() {
 void InstallextraPackages() {
     printf("whould you like to install non-essentail packages ? (Yes/No) \n >> ");
     if(getYesNo() == true) {
-        system("sudo xbps-install -y htop wpa-cute firefox pcmanfm gimp swayimg moc aspell aspell-en-2020 libaspell wlogout");
+        system("sudo xbps-install -y htop wpa-cute firefox pcmanfm gimp swayimg moc aspell aspell-en libaspell wlogout");
     } 
 }
 
