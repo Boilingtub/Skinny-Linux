@@ -34,4 +34,3 @@ export GDK_BACKEND="wayland,x11"
 
 slstatus -s | dbus-run-session dwl
 fi
-. "$HOME/.cargo/env"
