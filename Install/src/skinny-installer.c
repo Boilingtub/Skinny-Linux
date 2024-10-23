@@ -73,7 +73,7 @@ void InstallextraPackages() {
 
 int main() {
     printf("Starting Skinny-Linux Install\n");
-    char pkginstallcmd[] = "sudo xbps-install -y -Su curl bemenu grim wlrctl tlp font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri mesa-intel-dri polkit polkit-elogind sof-firmware wayland wlroots pipewire wireplumber yambar libavcodec libavutil alsa-utils openntpd xdg-desktop-portal-wlr bluez ldacBT libbluetooth libspa-bluetooth sbc";
+    char pkginstallcmd[] = "sudo xbps-install -y -Su curl bemenu grim wlrctl tlp font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri mesa-intel-dri polkit polkit-elogind sof-firmware wayland libX11 wlroots0.18 pipewire alsa-pipewire wireplumber wireplumber-elogind libavcodec libavutil chrony libmount xdg-desktop-portal-wlr bluez ldacBT libbluetooth libspa-bluetooth sbc";
   
     system(pkginstallcmd);
     printf("completed package installation\n");
@@ -85,7 +85,7 @@ int main() {
     char symlinkfirst[] = "sudo ln -s /etc/sv/";
     #define symlinkcount 9
     char *symlinks[symlinkcount] = {"dhcpcd","elogind","dbus",
-                        "openntpd","polkitd","tlp",
+                        "chronyd","polkitd","tlp",
                         "udevd","wpa_supplicant","bluetoothd"};
     char symlinklast[] = " /var/service/";
     for(int i = 0;i < symlinkcount;i++) {
@@ -99,9 +99,9 @@ int main() {
 
 
     char curlfromgit[] = "curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/";
-    #define gitTarArchivescount 6
+    #define gitTarArchivescount 7
     char *gitTarArchives[gitTarArchivescount] = {"HackFont","bright","dwl-v0.7-jan",
-                         "foot","wbg","slstatus"};
+                         "foot","wbg","slstatus","wpctlGetAllVol"};
     char suffix[] = ".tar.gz";
 
     for(int i = 0;i < gitTarArchivescount;i++) {

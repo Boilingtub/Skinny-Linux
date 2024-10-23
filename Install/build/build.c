@@ -13,7 +13,7 @@
 
 //concatonation functions
 #define STR(x) #x
-#define COMPILE_COMMAND(compiler,main_file,program_name) compiler " " LIB " " SRC_DIR main_file " -o " OUTPUT_DIR program_name
+#define COMPILE_COMMAND(compiler,main_file,program_name) compiler " -Os " LIB " " SRC_DIR main_file " -o " OUTPUT_DIR program_name
 #define RUN_COMMAND(directory,program_name) directory program_name
 
 int main() {
