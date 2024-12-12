@@ -67,7 +67,7 @@ void createDirectories() {
 void InstallextraPackages() {
     printf("whould you like to install non-essentail packages ? (Yes/No) \n >> ");
     if(getYesNo() == true) {
-        system("sudo xbps-install -y htop firefox nnn cmus aspell aspell-en libaspell lua54 unzip");
+        system("sudo xbps-install -y htop firefox nnn cmus lua54 unzip");
     } 
 }
 
