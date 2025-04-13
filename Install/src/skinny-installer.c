@@ -73,7 +73,7 @@ void InstallextraPackages() {
 
 int main() {
     printf("Starting Skinny-Linux Install\n");
-    char pkginstallcmd[] = "sudo xbps-install -y -Su curl wmenu grim wlrctl tlp font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri mesa-intel-dri polkit polkit-elogind sof-firmware wayland libX11 wlroots0.18 pipewire alsa-pipewire wireplumber wireplumber-elogind libavcodec libavutil chrony libmount xdg-desktop-portal-wlr bluez ldacBT libbluetooth libspa-bluetooth sbc";
+    char pkginstallcmd[] = "sudo xbps-install -y -Su curl wmenu grim wlrctl tlp font-awesome6 dejavu-fonts-ttf dbus dbus-elogind elogind alacritty mesa mesa-dri mesa-intel-dri xorg-server-xwayland polkit polkit-elogind sof-firmware wayland libX11 wlroots0.18 pipewire alsa-pipewire wireplumber wireplumber-elogind libavcodec libavutil chrony libmount xdg-desktop-portal-wlr bluez ldacBT libbluetooth libspa-bluetooth sbc";
   
     system(pkginstallcmd);
     printf("completed package installation\n");
@@ -99,8 +99,8 @@ int main() {
 
 
     char curlfromgit[] = "curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/x86_64/";
-    #define gitTarArchivescount 9
-    char *gitTarArchives[gitTarArchivescount] = {"HackFont","bright","dwl-v0.7-patched","alacritty","tmux",
+    #define gitTarArchivescount 10
+    char *gitTarArchives[gitTarArchivescount] = {"HackFont","bright","reroute_event","dwl-v0.7-patched","alacritty","tmux",
                          "foot","wbg","slstatus","wpctlGetAllVol"};
     char suffix[] = ".tar.gz";
 
