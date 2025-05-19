@@ -1,0 +1,18 @@
+#! /bin/sh
+
+if [ "$1" = "-set" ]; then
+  cp "${2}" ${HOME}/.wallpaper 
+  wbg ${HOME}/.wallpaper
+elif [ "${1}" = "-reload" ]; then
+  wbg ${HOME}/.wallpaper
+elif [ "${1}" = "-clear" ]; then
+  killall wbg
+elif [ "${1}" = "-remove"]; then
+  killall wbg
+  rm ${HOME}/.wallpaper
+else
+  echo "wallpaper -set <PATH-TO-FILE>"
+  echo "wallpaper -reload"
+  echo "wallpaper -clear"
+  echo "wallpaper -remove"
+fi

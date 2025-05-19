@@ -1,0 +1,3 @@
+#!/bin/sh
+waylock &
+echo "jan" | sudo -S zzz

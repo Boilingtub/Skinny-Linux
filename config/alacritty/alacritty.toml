@@ -1,0 +1,39 @@
+[window]
+decorations = "None"
+
+[scrolling]
+history = 500
+
+[colors.primary]
+foreground = "#d8d8d8"
+background = "#000000"
+dim_foreground = "#828482"
+bright_foreground = "None"
+
+[colors.normal]
+black = "#000000" # black
+red = "#f71118" # red
+green="#2cc55d" # green
+yellow="#0f80d5" # yellow
+blue="#2a84d2" # blue
+magenta="#4e59b7" # magenta
+cyan="#0f80d5" # cyan
+white="#c1c8d7" # white
+[colors.bright]
+black="#08404f"   # bright black
+red="#e35f5c"   # bright red
+green="#9fb700"   # bright green
+yellow="#d9a400"   # bright yellow
+blue="#4ba1de"   # bright blue
+magenta="#dc619d"   # bright magenta
+cyan="#32c1b6"   # bright cyan
+white="#ffffff"   # bright white
+#[color.dim]
+
+[cursor]
+style = { shape = "Beam", blinking = "Off" }
+
+[font]
+normal = { family = "HackNerdFontMono", style = "Regular" }
+size = 12
+

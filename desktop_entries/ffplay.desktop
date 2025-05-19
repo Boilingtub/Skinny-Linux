@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=ffplay
+GenericName=Video player
+GenericName[en_US]=Video player
+Comment=FFMpeg based video player
+Exec=ffplay %F
+NoDisplay=true
+Terminal=false
+Type=Application
+Categories=Graphics;2DGraphics;Viewer;
+MimeType=video/webm;
+Name[en_US]=ffplay
+Icon=multimedia-video-player
+Keywords=video;movie;

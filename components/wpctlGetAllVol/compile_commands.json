@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-o",
+      "pipewiregetvol",
+      "pipewiregetvol.cpp"
+    ],
+    "directory": "/home/hendrik/Coding/PipewireGetVol",
+    "file": "/home/hendrik/Coding/PipewireGetVol/pipewiregetvol.cpp",
+    "output": "/home/hendrik/Coding/PipewireGetVol/pipewiregetvol"
+  }
+]
