@@ -3,7 +3,7 @@ cd "/home/hendrik/Coding/Skinny-Linux/"
 rm -rf "./Archives/x86_64/"
 mkdir "./Archives/x86_64/"
 ###########################################################
-cp ./components/installer/build/build ./Archives/x86_64/
+cp ./components/installer/output/skinny-installer ./Archives/x86_64/
 ###########################################################
 echo '
 #!/bin/sh

@@ -49,7 +49,7 @@ void installTarArchive(char *ArchiveName) {
 
 void createDirectories() {
     system("mkdir $HOME/.local");
-    system("mv zen $HOME/.local/bin");
+    system("mkdir $HOME/.local/bin");
     system("mkdir $HOME/.config");
     system("mkdir $HOME/.cache");
 }
@@ -61,12 +61,10 @@ void InstallextraPackages() {
     } 
     printf("would you like to install non-essentail archives ? (Yes/No) \n >> ");
     if(getYesNo() == true) {
-
       system("curl -LJO https://github.com/zen-browser-auto/www-temp/releases/latest/download/zen.linux-x86_64.tar.xz");
       system("tar -xvf zen.linux-x86_64.tar.xz");
       system("mv zen $HOME/.local/bin/zen-browser");
       system("ln -s $HOME/.local/bin/zen-browser/zen $HOME/.local/bin/zen");
-
     } 
 }
 
@@ -104,7 +102,7 @@ int main() {
     printf("completed symlinks\n");
 
     char curlfromgit[] = "curl -LJO https://github.com/Boilingtub/Skinny-Linux/raw/main/Archives/x86_64/";
-    #define gitTarArchivescount 10
+    #define gitTarArchivescount 5
     char *gitTarArchives[gitTarArchivescount] = {
       "components",
       "desktop_entries",
