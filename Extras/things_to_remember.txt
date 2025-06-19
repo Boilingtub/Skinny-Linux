@@ -1,0 +1,23 @@
+[Create tar.xz archive]
+$ tar cf - directory | xz -9ev > directory.tar.xz
+
+[Change default gtk theme using gesettings]
+$ gettings set org.gnome.desktop.interface gtk-theme "YOUR_DARK_GTK3_THEME"   # for GTK3 apps
+
+$ gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"   # for GTK4 apps
+
+[Create a Custom Mime Type]
+
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+  <mime-type type="application/x-mytype">
+    <comment>A witty comment</comment>
+    <comment xml:lang="it">Uno Commento</comment>
+    <glob pattern="*.myapp"/>
+  </mime-type>
+</mime-info>
+
+$ xdg-mime install mytype-mime.xml
+
+[C runtime for windows ~ 500MB for Cross Compilation]
+$ sudo xbps-install cross-x86_64-w64-ming32ucrt
