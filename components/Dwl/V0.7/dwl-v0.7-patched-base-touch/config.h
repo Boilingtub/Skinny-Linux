@@ -137,8 +137,10 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *screenshotcmd[] = { "grim", NULL };
-static const char *termcmd[] = { "alacritty", NULL };
+static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "wmenu-run", NULL };
+//static const char *virtkbdcmd1[] = { "pkill","wvkbd",";","wvkbd-skbd", NULL}
+//static const char *virtkbdcmd2[] = { "pkill","wvkbd",";","wvkbd-mobintl", NULL}
 //static const char *dmenucmd[] = { "wmenu", NULL };
 
 static const Key keys[] = {

@@ -1,0 +1,13 @@
+
+#!/bin/sh
+echo Installing config archive
+mv ./config/alacritty/ $HOME/.config/
+mv ./config/tmux/ $HOME/.config/
+mv ./config/foot/ $HOME/.config/
+mv ./config/bashrc /home/$USER/.bashrc
+sudo mv ./config/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+mv ./config/bootlogo.png .wallpaper
+sudo mv ./config/issue /etc/issue
+sudo mv ./config/default_grub /etc/default/grub
+sudo update-grub
+

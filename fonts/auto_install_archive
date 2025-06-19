@@ -1,0 +1,16 @@
+
+#!/bin/sh
+echo Installing fonts archive
+sudo mv ./fonts/HackFont/HackNerdFont-Bold.ttf /usr/share/fonts/TTF
+sudo mv ./fonts/HackFont/HackNerdFontMono-Bold.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFontPropo-Bold.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFont-BoldItalic.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFontMono-BoldItalic.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFontPropo-BoldItalic.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFont-Italic.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFontMono-Italic.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFontPropo-Italic.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFont-Regular.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFontMono-Regular.ttf /usr/share/fonts/TTF 
+sudo mv ./fonts/HackFont/HackNerdFontPropo-Regular.ttf /usr/share/fonts/TTF 
+

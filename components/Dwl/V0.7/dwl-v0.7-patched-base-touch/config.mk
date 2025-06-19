@@ -12,4 +12,4 @@ DATADIR = $(PREFIX)/share
 XWAYLAND = -DXWAYLAND
 XLIBS = xcb xcb-icccm
 
-CC = gcc
+CC = zig cc

@@ -1,2 +1,2 @@
-gcc build.c -o build
+zig cc build.c -o build
 ./build

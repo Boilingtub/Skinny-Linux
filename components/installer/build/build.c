@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 // configure project setup here
-#define COMPILER "gcc"
+#define COMPILER "zig cc"
 #define SRC_DIR "../src/"
 #define OUTPUT_DIR "../output/"
-#define DESTINATION_DIR "../../x86_64/x86_64/"
+#define DESTINATION_DIR "../../../Archives/x86_64/"
 #define PROGRAM_NAME "skinny-installer"
 #define C_FILES "skinny-installer.c"
 #define INCLUDE ""

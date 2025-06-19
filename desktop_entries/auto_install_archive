@@ -1,0 +1,6 @@
+
+#!/bin/sh
+echo Installing desktop_entries archive
+sudo mv ./desktop_entries/zen.desktop /usr/share/applications 
+sudo mv ./desktop_entries/ffplay.desktop /usr/share/applications/
+

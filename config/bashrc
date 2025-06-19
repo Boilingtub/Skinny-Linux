@@ -5,10 +5,10 @@
 
 alias ls='ls --color=auto'
 alias cmus='cmus --show-cursor'
-#alias lynx='lynx www.duckduckgo.com'
+alias tmux='tmux -2'
+alias xournal='xournalpp'
+alias lynx='lynx www.duckduckgo.com'
 alias tuks="cd ~/Documents/TUKS/"
-#alias foot="foot -T terminal"
-#alias cal="calcurse"
 
 PS1='[\u@\h \W]\$ '
 

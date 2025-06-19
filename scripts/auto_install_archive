@@ -1,0 +1,20 @@
+
+#!/bin/sh
+echo Installing scripts archive
+mv ./scripts/Res.sh $HOME/.local/bin/
+mv ./scripts/Z $HOME/.local/bin/
+mv ./scripts/bigttyfont.sh $HOME/.local/bin/
+mv ./scripts/dwlinit.sh $HOME/.local/bin/
+mv ./scripts/flip_screen.sh $HOME/.local/bin/
+mv ./scripts/full_bright.sh $HOME/.local/bin/
+mv ./scripts/low_power.sh $HOME/.local/bin/
+mv ./scripts/mobile_mode.sh $HOME/.local/bin/
+mv ./scripts/on_screen_keyboard.sh $HOME/.local/bin/
+mv ./scripts/rotate_screen.sh $HOME/.local/bin/
+mv ./scripts/toggle_audiosystems.sh $HOME/.local/bin/
+mv ./scripts/touch_pad.sh $HOME/.local/bin/
+mv ./scripts/wvkbd $HOME/.local/bin/
+mv ./scripts/wvkbd-mobintl $HOME/.local/bin/
+mv ./scripts/yt.sh $HOME/.local/bin/
+mv ./scripts/youtube-download $HOME/.local/bin/
+
