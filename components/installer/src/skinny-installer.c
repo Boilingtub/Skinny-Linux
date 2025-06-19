@@ -59,7 +59,7 @@ void InstallextraPackages() {
     if(getYesNo() == true) {
         system("sudo xbps-install -y htop neovim nnn cmus lua54 unzip");
     } 
-    printf("would you like to install non-essentail archives ? (Yes/No) \n >> ");
+    printf("would you like to install zen browser? (Yes/No) \n >> ");
     if(getYesNo() == true) {
       system("curl -LJO https://github.com/zen-browser-auto/www-temp/releases/latest/download/zen.linux-x86_64.tar.xz");
       system("tar -xvf zen.linux-x86_64.tar.xz");
@@ -122,6 +122,8 @@ int main() {
     for(int i = 0;i < gitTarArchivescount;i++) { 
         installTarArchive(gitTarArchives[i]);
     }
+
+    InstallextraPackages();
 
     printf("Cleaning up temporary files...\n");
     system("rm -rf skinny-installer");
