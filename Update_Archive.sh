@@ -3,6 +3,8 @@ cd "/home/hendrik/Coding/Skinny-Linux/"
 rm -rf "./Archives/x86_64/"
 mkdir "./Archives/x86_64/"
 ###########################################################
+cp ./components/installer/build/build ./Archives/x86_64/
+###########################################################
 echo '
 #!/bin/sh
 echo Installing components archive 
