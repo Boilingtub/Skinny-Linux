@@ -65,6 +65,7 @@ void InstallextraPackages() {
       system("tar -xvf zen.linux-x86_64.tar.xz");
       system("mv zen $HOME/.local/bin/zen-browser");
       system("ln -s $HOME/.local/bin/zen-browser/zen $HOME/.local/bin/zen");
+      system("rm -rf zen.linux-x86_64.tar.xz");
     } 
 }
 
