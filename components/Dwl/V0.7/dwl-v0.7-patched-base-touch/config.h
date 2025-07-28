@@ -30,7 +30,7 @@ static int log_level = WLR_ERROR;
 /* Autostart */
 static const char *const autostart[] = {
     "pipewire" , NULL,
-    "wireplumber", NULL,
+    //"wireplumber", NULL,
     "wbg" , ".wallpaper" , NULL,
     NULL /* terminate */
 

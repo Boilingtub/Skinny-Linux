@@ -4,7 +4,7 @@ echo Installing components archive
 sudo mv ./components/Dwl/V0.7/dwl-v0.7-patched-base-touch/dwl /usr/local/bin
 sudo mv ./components/bright/bright /usr/local/bin
 sudo mv ./components/reroute_event/reroute_event /usr/local/bin
-sudo mv ./components/slstatus/slstatus /usr/local/bin
+sudo mv ./components/skstatus/zig-out/bin/skstatus /usr/local/bin
 sudo mv ./components/wpctlGetAllVol/wpctlGetAllVol /usr/local/bin
 sudo mv ./components/wbg/wallpaper /usr/local/bin
 sudo mv ./components/wbg/wbg /usr/local/bin
