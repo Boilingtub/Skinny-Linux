@@ -10,10 +10,10 @@ const Week_day_names = components.Week_day_names;
 pub fn main() !void {
     const interval = 3000;
     while (true) {
-        const BAT = try Battery.query("BAT0");
-        const BL = try Backlight.query();
+        const BAT = Battery.query("BAT0");
+        const BL = Backlight.query();
         const DT = DateTime.query(-4);
-        const WF = try Wifi.query("wlp0s20f3");
+        const WF = Wifi.query("wlp0s20f3");
         defer WF.deinit();
         print(" ({c}):{d}%[{d}h {d}m] :{d}%  :{s}[{d}] | {d}:{d:0>2} {s} {d}/{d:0>2}/{d}\n", .{
             BAT.status,BAT.capacity,BAT.time_remaining[0],BAT.time_remaining[1],

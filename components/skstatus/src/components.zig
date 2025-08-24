@@ -25,10 +25,10 @@ pub inline fn print(comptime fmt:[]const u8,args: anytype) void {
     var buf = std.io.bufferedWriter(stdout.writer());
     var w = buf.writer();
     w.print(fmt, args) catch {
-        unreachable;
+        return;
     };
     buf.flush() catch {
-        unreachable;
+        return;
     };
 }
 
@@ -45,28 +45,31 @@ pub fn read_file_first_char(path: []const u8) !u8 {
     defer file.close();
     var buf_reader = std.io.bufferedReader(file.reader());
     var in_stream = buf_reader.reader();
-    const byte = try in_stream.readByte();
+    const byte = try  in_stream.readByte();
     return byte;
 }
 
-pub fn read_file_to_int(T:type,path: []const u8) !T {
+pub fn read_line_to_type(T:type,path: []const u8) !T {
     var file = try std.fs.cwd().openFile(path, .{});
     defer file.close();
     var buf_reader = std.io.bufferedReader(file.reader());
     var in_stream = buf_reader.reader();
     var buf: [64]u8 = undefined; 
     const str = try in_stream.readUntilDelimiterOrEof(&buf, '\n');
-    return std.fmt.parseInt(T,str.?,10);
-}
-
-pub fn read_file_to_float(T:type,path: []const u8) !T {
-    var file = try std.fs.cwd().openFile(path, .{});
-    defer file.close();
-    var buf_reader = std.io.bufferedReader(file.reader());
-    var in_stream = buf_reader.reader();
-    var buf: [64]u8 = undefined; 
-    const str = try in_stream.readUntilDelimiterOrEof(&buf, '\n');
-    return std.fmt.parseFloat(T,str.?);
+    switch(T) {
+        u8  =>  return try std.fmt.parseInt(T,str.?,10),
+        u16 =>  return try std.fmt.parseInt(T,str.?,10),
+        u32 =>  return try std.fmt.parseInt(T,str.?,10),
+        u64 =>  return try std.fmt.parseInt(T,str.?,10),
+        i8  =>  return try std.fmt.parseInt(T,str.?,10),
+        i16 =>  return try std.fmt.parseInt(T,str.?,10),
+        i32 =>  return try std.fmt.parseInt(T,str.?,10),
+        i64 =>  return try std.fmt.parseInt(T,str.?,10),
+        f16 =>  return try std.fmt.parseFloat(T,str.?),  
+        f32 =>  return try std.fmt.parseFloat(T,str.?),
+        f64 =>  return try std.fmt.parseFloat(T,str.?),
+        else => return 0,
+    }
 }
 
 pub fn exec_cmd(allocator:std.mem.Allocator,
@@ -93,25 +96,42 @@ pub const Battery = struct {
     capacity: u8,
     time_remaining: [2]u8,
     status: u8,
-    pub fn query(comptime bat_name: []const u8) !Battery {
+    pub fn query(comptime bat_name: []const u8) Battery {
         const bat_capacity = POWER_SUPPLY_PATH++bat_name++"/capacity";
         const bat_charge_now = POWER_SUPPLY_PATH++bat_name++"/charge_now";
         const bat_current_now = POWER_SUPPLY_PATH++bat_name++"/current_now";
         const bat_status = POWER_SUPPLY_PATH++bat_name++"/status";
         
 
-        const found_status = try read_file_first_char(bat_status);
-        var status: u8 = 'E';
+        const found_status = blk: {
+            break :blk read_file_first_char(bat_status) catch {
+                break :blk 'E';
+            };
+        };
+        var status: u8 = undefined;
         switch (found_status) {
             'D' => status = '-',
             'C' => status = '+',
             'F' => status = 'o',
-            else => {},
+            'N' => status = 'x',
+            else => status = 'E',
         }
 
-        const charge_now = try read_file_to_float(f32, bat_charge_now);
-        const current_now = try read_file_to_float(f32, bat_current_now);
-        const capacity = try read_file_to_int(u8,bat_capacity);
+        const charge_now = blk: { 
+            break :blk read_line_to_type(f32, bat_charge_now) catch {
+                break :blk 0;
+            };
+        };
+        const current_now = blk: { 
+            break :blk read_line_to_type(f32, bat_current_now) catch {
+                break :blk 1;
+            };
+        };
+        const capacity = blk: {
+            break :blk read_line_to_type(u8,bat_capacity) catch {
+                break :blk 'E';
+            };
+        };
 
         const timeleft = @abs(charge_now / current_now);
 	var h = @floor(timeleft);
@@ -134,14 +154,22 @@ pub const Battery = struct {
 
 pub const Backlight = struct {
     percent: u8,
-    pub fn query() !Backlight {
+    pub fn query() Backlight {
         const max_bright_path = 
             BACKLIGHT_PATH++BACKLIGHT_NAME++"/max_brightness";
         const bright_path = 
             BACKLIGHT_PATH++BACKLIGHT_NAME++"/brightness";
 
-        const max_bright = try read_file_to_float(f32, max_bright_path);
-        const bright = try read_file_to_float(f32, bright_path);
+        const max_bright = blk: {
+            break :blk read_line_to_type(f32, max_bright_path) catch {
+                break :blk 1;
+            };
+        };
+        const bright = blk: { 
+            break :blk read_line_to_type(f32, bright_path) catch {
+                break :blk 0;
+            };
+        };
         const frac = @as(u8,@intFromFloat((bright/max_bright)*100));
         return Backlight {
             .percent = frac,
@@ -152,50 +180,77 @@ pub const Backlight = struct {
 pub const Wifi = struct {
     ssid: std.ArrayList(u8),
     signal: i16,
-    pub fn query(comptime wifi_device: []const u8) !Wifi {
+    pub fn query(comptime wifi_device: []const u8) Wifi {
         const allocator = gpa.allocator();
-
         const iw_argv = [_][]const u8{
             "iw","dev",wifi_device,"link",
         };
-        var wifi_data_raw = try exec_cmd(allocator, &iw_argv, 1024);
+        var wifi_data_raw = blk: {
+            break :blk exec_cmd(allocator, &iw_argv, 1024) catch {
+                return empty_wifi_class(allocator);
+            };
+        };
         defer wifi_data_raw.deinit(allocator);
 
+        var wifi_ssid:[]u8 = undefined;
         const wifi_ssid_start = std.mem.indexOf(
             u8, wifi_data_raw.items[0..], "SSID: "
-        ).? + 6;
-        const wifi_ssid_end = std.mem.indexOf(
-            u8, wifi_data_raw.items[wifi_ssid_start..], "\n"
-        ).?;
-        const wifi_ssid = wifi_data_raw.items[wifi_ssid_start..
-            wifi_ssid_start+wifi_ssid_end];
-
-        const wifi_signal_start = std.mem.indexOf(
-            u8, wifi_data_raw.items[0..], "signal: ").? + 8;
-        const wifi_signal_end = std.mem.indexOf(u8,
-            wifi_data_raw.items[wifi_signal_start..], " ").?;
-        const wifi_signal:i16 = @as(
-            i16,
-            @intCast(
-                try std.fmt.parseInt(
-                    i16,
-                    wifi_data_raw.items[wifi_signal_start..
-                        wifi_signal_start+wifi_signal_end],
-                    10 
-                )
-            )
         );
+        if(wifi_ssid_start != null) {
+            const wifi_ssid_end = std.mem.indexOf(
+                u8, wifi_data_raw.items[wifi_ssid_start.?+6..], "\n"
+            );
+            if(wifi_ssid_end != null) {
+                wifi_ssid = wifi_data_raw.items[wifi_ssid_start.?+6..
+                    wifi_ssid_start.?+6+wifi_ssid_end.?];
+            } else {return empty_wifi_class(allocator);}
+        } else {return empty_wifi_class(allocator);}
+
+
+        var wifi_signal:i16 = 0;
+        const wifi_signal_start = std.mem.indexOf(
+            u8, wifi_data_raw.items[0..], "signal: ");
+        if(wifi_signal_start != null) {
+            const wifi_signal_end = std.mem.indexOf(u8,
+                wifi_data_raw.items[wifi_signal_start.?+8..], " ");
+            if(wifi_signal_end != null) {
+                wifi_signal =
+                    @as(i16, 
+                        @intCast( 
+                            blk: {
+                                break :blk std.fmt.parseInt(
+                                    i16,
+                                    wifi_data_raw.items[wifi_signal_start.?+8..
+                                        wifi_signal_start.?+8+wifi_signal_end.?],
+                                    10
+                                ) catch {break :blk 0;};
+                            } 
+                        )
+                    );
+            } else {return empty_wifi_class(allocator);}
+        } else {return empty_wifi_class(allocator);}
 
         var wf = Wifi {
-            .ssid = try std.ArrayList(u8).initCapacity(allocator,wifi_ssid.len),
+            .ssid = std.ArrayList(u8).initCapacity(allocator,wifi_ssid.len)
+                catch {unreachable;},
             .signal = wifi_signal,
         };
-        try wf.ssid.appendSlice(wifi_ssid);
+        wf.ssid.appendSlice(wifi_ssid) catch {unreachable;};
         return wf;
     }
     pub fn deinit(self:Wifi) void {
         self.ssid.deinit();
     }
+
+    fn empty_wifi_class(allocator: std.mem.Allocator) Wifi {
+        var ssid = std.ArrayList(u8).initCapacity(allocator,4) catch {unreachable;};
+        ssid.appendSlice("n\\a") catch {unreachable;};
+            return Wifi {
+                .ssid = ssid,
+                .signal = 0,
+        };
+    }
+
 };
 
 pub const DateTime = struct {
@@ -258,7 +313,7 @@ pub const DateTime = struct {
         const addMins = @floor(restHours*60);
         const restMins = (restHours*60) - addMins;
         
-        const addWeek = ((@as(f64,@floatFromInt(ts)) / 60 / 60 / 24 )-3) / 7;
+        const addWeek = ((@as(f64,@floatFromInt(ts)) / 60 / 60 / 24 )+3) / 7;
         const Week_day:u8 = @as(u8,@intFromFloat((addWeek-@floor(addWeek))*7));
 
         const addSec = @floor(restMins*60);
