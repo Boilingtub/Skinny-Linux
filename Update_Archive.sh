@@ -8,7 +8,7 @@ cp ./components/installer/output/skinny-installer ./Archives/x86_64/
 echo '
 #!/bin/sh
 echo Installing components archive 
-sudo mv ./components/Dwl/V0.7/dwl-v0.7-patched-base-touch/dwl /usr/local/bin
+sudo mv ./components/Dwl/GIT20250804/dwl-patch-base/dwl /usr/local/bin
 sudo mv ./components/bright/bright /usr/local/bin
 sudo mv ./components/reroute_event/reroute_event /usr/local/bin
 sudo mv ./components/skstatus/zig-out/bin/skstatus /usr/local/bin
@@ -22,7 +22,7 @@ sudo mv ./components/wbg/libjpeg/libjpeg.so.62.3.0 /lib
 ' > ./components/auto_install_archive
 components='
   ./components/auto_install_archive
-  ./components/Dwl/V0.7/dwl-v0.7-patched-base-touch/dwl
+  ./components/Dwl/GIT20250804/dwl-patch-base/dwl
   ./components/bright/bright
   ./components/reroute_event/reroute_event
   ./components/slstatus/slstatus
