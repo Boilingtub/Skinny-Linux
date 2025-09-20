@@ -1,5 +1,0 @@
-sudo xbps-install gcc pkg-config wayland-protocols wayland-scanner++ wlroots0.19-devel wayland-devel libxcb-devel libxkbcommon-devel fcft-devel
-
-#if systray:
-#gtk-layer-shell gdk-pixbuf-devel cmake meson gtk4-devel
-

@@ -31,8 +31,5 @@ export CLUTTER_BACKEND="wayland"
 export SDL_VIDEODRIVER="wayland,x11"
 
 export GDK_BACKEND="wayland,x11"
-#dbus-run-session dwl
-slstatus -s | dbus-run-session dwl
-#dbus-run-session dwl >> ~/.cache/dwl_info
-#dbus-run-session river
+mangoinit.sh
 fi
