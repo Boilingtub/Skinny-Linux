@@ -1,14 +1,17 @@
 # .bashrc
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias vi='nvim'
 alias cmus='cmus --show-cursor'
 alias tmux='tmux -2'
+alias xo='xdg-open'
 alias xournal='xournalpp'
 alias lynx='lynx www.duckduckgo.com'
 alias tuks="cd ~/Documents/TUKS/"
+alias cmas="cd ~/Documents/Archive/CMAS/"
+alias cc="zig cc"
 
 PS1='[\u@\h \W]\$ '
 
@@ -17,9 +20,11 @@ export PATH=$HOME/.local/bin:$PATH
 if [ $(tty) == "/dev/tty1" ]; then
 echo "starting bashrc"
 
+export EDITOR=nvim
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway # sway because this makes obs screen sharing work
 export XDG_SESSION_DESKTOP=sway
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_QPA_PLATFORM="wayland;xcb"
@@ -31,5 +36,6 @@ export CLUTTER_BACKEND="wayland"
 export SDL_VIDEODRIVER="wayland,x11"
 
 export GDK_BACKEND="wayland,x11"
-mangoinit.sh
+
+river
 fi
