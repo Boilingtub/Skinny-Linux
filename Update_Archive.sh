@@ -8,7 +8,10 @@ cp ./components/installer/output/skinny-installer ./Archives/x86_64/
 echo '
 #!/bin/sh
 echo Installing components archive 
-sudo mv ./components/Dwl/GIT20250804/dwl-patch-base/dwl /usr/local/bin
+sudo mv ./components/river/bin/river /usr/local/bin
+sudo mv ./components/river/bin/riverctl /usr/local/bin
+sudo mv ./components/river/bin/filtile /usr/local/bin
+sudo mv ./components/river/bin/creek /usr/local/bin
 sudo mv ./components/bright/bright /usr/local/bin
 sudo mv ./components/reroute_event/reroute_event /usr/local/bin
 sudo mv ./components/skstatus/zig-out/bin/skstatus /usr/local/bin
@@ -22,10 +25,10 @@ sudo mv ./components/wbg/libjpeg/libjpeg.so.62.3.0 /lib
 ' > ./components/auto_install_archive
 components='
   ./components/auto_install_archive
-  ./components/Dwl/GIT20250804/dwl-patch-base/dwl
+  ./components/river/bin/
   ./components/bright/bright
   ./components/reroute_event/reroute_event
-  ./components/slstatus/slstatus
+  ./components/skstatus/
   ./components/wbg/wbg
   ./components/wbg/wallpaper
   ./components/wbg/libjpeg/
@@ -93,7 +96,7 @@ scripts='
   ./scripts/Res.sh
   ./scripts/Z
   ./scripts/bigttyfont.sh
-  ./scripts/dwlinit.sh
+  ./scripts/riverinit.sh
   ./scripts/flip_screen.sh
   ./scripts/full_bright.sh
   ./scripts/low_power.sh
@@ -113,6 +116,7 @@ echo '
 #!/bin/sh
 echo Installing config archive
 mv ./config/alacritty/ $HOME/.config/
+mv ./config/river/ $HOME/.config/
 mv ./config/tmux/ $HOME/.config/
 mv ./config/foot/ $HOME/.config/
 mv ./config/bashrc /home/$USER/.bashrc
@@ -125,6 +129,7 @@ sudo update-grub
 config='
   ./config/auto_install_archive
   ./config/alacritty/alacritty.toml
+  ./config/river/init
   ./config/tmux/tmux.conf
   ./config/tmux/list_tmux_cols.sh
   ./config/bashrc
