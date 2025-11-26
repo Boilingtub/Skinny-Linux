@@ -17,7 +17,7 @@ pub fn main() !void {
         print(" ({c}):{d}%[{d}h {d}m] :{d}%  :{s}[{d}] | {d}:{d:0>2} {s} {d}/{d:0>2}/{d}\n", .{
             BAT.status,BAT.capacity,BAT.time_remaining[0],BAT.time_remaining[1],
             BL.percent,
-            WF.ssid[0..], WF.signal,
+            WF.ssid.items[0..], WF.signal,
             DT.Hour,DT.Minute,Week_day_names[DT.Week_day], DT.Year,DT.Month,DT.Day});
         wait(interval); 
     }

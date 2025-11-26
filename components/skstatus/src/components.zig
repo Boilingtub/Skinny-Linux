@@ -180,16 +180,17 @@ pub const Backlight = struct {
 };
 
 pub const Wifi = struct {
-    ssid: [32]u8,
+    ssid: std.ArrayList(u8),
     signal: i16,
     pub fn query(comptime wifi_device: []const u8) Wifi {
         const allocator = gpa.allocator();
+        var wf = Wifi.empty_wifi_class(allocator);
         const iw_argv = [_][]const u8{
             "iw","dev",wifi_device,"link",
         };
         var wifi_data_raw = blk: {
             break :blk exec_cmd(allocator, &iw_argv, 1024) catch {
-                return empty_wifi_class();
+                return wf;
             };
         };
         defer wifi_data_raw.deinit(allocator);
@@ -205,8 +206,8 @@ pub const Wifi = struct {
             if(wifi_ssid_end != null) {
                 wifi_ssid = wifi_data_raw.items[wifi_ssid_start.?+6..
                     wifi_ssid_start.?+6+wifi_ssid_end.?];
-            } else {return empty_wifi_class();}
-        } else {return empty_wifi_class();}
+            } else {return wf;}
+        } else {return wf;}
 
 
         var wifi_signal:i16 = 0;
@@ -229,30 +230,25 @@ pub const Wifi = struct {
                             } 
                         )
                     );
-            } else {return empty_wifi_class();}
-        } else {return empty_wifi_class();}
+            } else {return wf;}
+        } else {return wf;}
 
-        var wf = Wifi {
-            .ssid = std.mem.zeroes([32]u8),
-            .signal = wifi_signal,
+        std.ArrayList(u8).resize(&wf.ssid, allocator, wifi_ssid.len) catch {
+            return wf;
         };
-        
-        for(0..wifi_ssid.len) |i| {
-            if (i > wf.ssid.len) { break;} 
-            wf.ssid[i] = wifi_ssid[i];
-        }
+        wf.ssid.clearRetainingCapacity();
+        wf.ssid.appendSlice(allocator, wifi_ssid) catch unreachable;
+        wf.signal = wifi_signal;
         return wf;
     }
 
-    fn empty_wifi_class() Wifi {
+    fn empty_wifi_class(allocator : std.mem.Allocator) Wifi {
         var wf = Wifi {
-                .ssid = undefined,
+                .ssid = std.ArrayList(u8).initCapacity(allocator, 3) catch unreachable,
                 .signal = 0,
         };
         const s = "n\\a";
-        for(0..s.len) |i| {
-            wf.ssid[i] = s[i];
-        }
+        wf.ssid.appendSlice(allocator, s) catch unreachable;
         return wf;
 
     }
