@@ -2,6 +2,7 @@
 #!/bin/sh
 echo Installing config archive
 mv ./config/alacritty/ $HOME/.config/
+mv ./config/river/ $HOME/.config/
 mv ./config/tmux/ $HOME/.config/
 mv ./config/foot/ $HOME/.config/
 mv ./config/bashrc /home/$USER/.bashrc

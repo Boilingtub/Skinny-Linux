@@ -1,7 +1,10 @@
 
 #!/bin/sh
 echo Installing components archive 
-sudo mv ./components/Dwl/GIT20250804/dwl-patch-base/dwl /usr/local/bin
+sudo mv ./components/river/bin/river /usr/local/bin
+sudo mv ./components/river/bin/riverctl /usr/local/bin
+sudo mv ./components/river/bin/filtile /usr/local/bin
+sudo mv ./components/river/bin/creek /usr/local/bin
 sudo mv ./components/bright/bright /usr/local/bin
 sudo mv ./components/reroute_event/reroute_event /usr/local/bin
 sudo mv ./components/skstatus/zig-out/bin/skstatus /usr/local/bin

@@ -1,0 +1,29 @@
+.{
+    .name = .river,
+    // While a river release is in development, this string should contain
+    // the version in development with the "-dev" suffix.
+    // When a release is tagged, the "-dev" suffix should be removed for the
+    // commit that gets tagged. Directly after the tagged commit, the version
+    // should be bumped and the "-dev" suffix added.
+    .version = "0.3.12",
+    .paths = .{""},
+    .dependencies = .{
+        .pixman = .{
+            .url = "https://codeberg.org/ifreund/zig-pixman/archive/v0.3.0.tar.gz",
+            .hash = "pixman-0.3.0-LClMnz2VAAAs7QSCGwLimV5VUYx0JFnX5xWU6HwtMuDX",
+        },
+        .wayland = .{
+            .url = "https://codeberg.org/ifreund/zig-wayland/archive/v0.4.0.tar.gz",
+            .hash = "wayland-0.4.0-lQa1khbMAQAsLS2eBR7M5lofyEGPIbu2iFDmoz8lPC27",
+        },
+        .wlroots = .{
+            .url = "https://codeberg.org/ifreund/zig-wlroots/archive/v0.19.3.tar.gz",
+            .hash = "wlroots-0.19.3-jmOlcuL_AwBHhLCwpFsXbTizE3q9BugFmGX-XIxqcPMc",
+        },
+        .xkbcommon = .{
+            .url = "https://codeberg.org/ifreund/zig-xkbcommon/archive/v0.3.0.tar.gz",
+            .hash = "xkbcommon-0.3.0-VDqIe3K9AQB2fG5ZeRcMC9i7kfrp5m2rWgLrmdNn9azr",
+        },
+    },
+    .fingerprint = 0xf5e3672b8e8d6efc,
+}

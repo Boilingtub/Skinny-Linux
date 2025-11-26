@@ -72,7 +72,7 @@ void InstallextraPackages() {
 int main() {
     printf("Starting Skinny-Linux Install\n");
 
-    char pkginstallcmd[] = "sudo xbps-install -y -Su curl xz wmenu grim wlrctl tlp font-awesome6 wl-clipboard wl-clip-persist dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri mesa-intel-dri xorg-server-xwayland polkit polkit-elogind sof-firmware wayland libX11 wlroots0.18 pipewire alsa-pipewire wireplumber wireplumber-elogind libavcodec libavutil chrony libmount xdg-desktop-portal-wlr bluez ldacBT libbluetooth libspa-bluetooth sbc"; 
+    char pkginstallcmd[] = "sudo xbps-install -y -Su curl xz wmenu grim wlrctl tlp font-awesome6 wl-clipboard wl-clip-persist dejavu-fonts-ttf dbus dbus-elogind elogind foot mesa mesa-dri mesa-intel-dri xorg-server-xwayland polkit polkit-elogind sof-firmware wayland libX11 wlroots0.19 pipewire alsa-pipewire wireplumber wireplumber-elogind libavcodec libavutil chrony libmount xdg-desktop-portal-wlr xdg-user-dirs bluez ldacBT libbluetooth libspa-bluetooth sbc gsettings-desktop-schemas"; 
     system(pkginstallcmd);
     printf("completed package installation\n");
 

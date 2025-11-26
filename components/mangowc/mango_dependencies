@@ -1,1 +1,0 @@
-sudo xbps-install gcc wayland-scanner++ pcre2 pcre2-devel libpcre2 cmake pkg-config meson ninja wlroots0.19 wlroots0.19-devel scenefx scenefx-devel

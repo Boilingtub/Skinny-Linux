@@ -1,0 +1,8 @@
+prefix=/home/hendrik/Coding/Skinny-Linux/components/river/river-0.3.12/zig-out
+datadir=${prefix}/share
+pkgdatadir=${datadir}/river-protocols
+
+Name: river-protocols
+URL: https://codeberg.org/river/river
+Description: protocol files for the river wayland compositor
+Version: 0.3.12
