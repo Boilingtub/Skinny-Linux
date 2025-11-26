@@ -21,13 +21,13 @@ pub inline fn wait(comptime i: u64) void {
 }
 
 pub inline fn print(comptime fmt:[]const u8,args: anytype) void {
-    const stdout = std.io.getStdOut();
-    var buf = std.io.bufferedWriter(stdout.writer());
-    var w = buf.writer();
-    w.print(fmt, args) catch {
+    var buf: [1024]u8 = undefined;
+    var writer = std.fs.File.stdout().writer(&buf);
+    var stdout = &writer.interface;
+    stdout.print(fmt, args) catch {
         return;
     };
-    buf.flush() catch {
+    stdout.flush() catch {
         return;
     };
 }
@@ -43,31 +43,33 @@ pub fn read_full_file(allocator: std.mem.Allocator, path: []const u8) ![]u8 {
 pub fn read_file_first_char(path: []const u8) !u8 {
     var file = try std.fs.cwd().openFile(path, .{});
     defer file.close();
-    var buf_reader = std.io.bufferedReader(file.reader());
-    var in_stream = buf_reader.reader();
-    const byte = try  in_stream.readByte();
-    return byte;
+    var buf: [1]u8 = undefined;
+    const size = try file.readAll(buf[0..]);
+    if (size > 0) {
+        return buf[0];
+    } else {
+        return '0';
+    } 
 }
 
 pub fn read_line_to_type(T:type,path: []const u8) !T {
     var file = try std.fs.cwd().openFile(path, .{});
     defer file.close();
-    var buf_reader = std.io.bufferedReader(file.reader());
-    var in_stream = buf_reader.reader();
     var buf: [64]u8 = undefined; 
-    const str = try in_stream.readUntilDelimiterOrEof(&buf, '\n');
+    var reader = file.reader(&buf);
+    const str = try reader.interface.takeDelimiterExclusive('\n');
     switch(T) {
-        u8  =>  return try std.fmt.parseInt(T,str.?,10),
-        u16 =>  return try std.fmt.parseInt(T,str.?,10),
-        u32 =>  return try std.fmt.parseInt(T,str.?,10),
-        u64 =>  return try std.fmt.parseInt(T,str.?,10),
-        i8  =>  return try std.fmt.parseInt(T,str.?,10),
-        i16 =>  return try std.fmt.parseInt(T,str.?,10),
-        i32 =>  return try std.fmt.parseInt(T,str.?,10),
-        i64 =>  return try std.fmt.parseInt(T,str.?,10),
-        f16 =>  return try std.fmt.parseFloat(T,str.?),  
-        f32 =>  return try std.fmt.parseFloat(T,str.?),
-        f64 =>  return try std.fmt.parseFloat(T,str.?),
+        u8  =>  return try std.fmt.parseInt(T,str,10),
+        u16 =>  return try std.fmt.parseInt(T,str,10),
+        u32 =>  return try std.fmt.parseInt(T,str,10),
+        u64 =>  return try std.fmt.parseInt(T,str,10),
+        i8  =>  return try std.fmt.parseInt(T,str,10),
+        i16 =>  return try std.fmt.parseInt(T,str,10),
+        i32 =>  return try std.fmt.parseInt(T,str,10),
+        i64 =>  return try std.fmt.parseInt(T,str,10),
+        f16 =>  return try std.fmt.parseFloat(T,str),  
+        f32 =>  return try std.fmt.parseFloat(T,str),
+        f64 =>  return try std.fmt.parseFloat(T,str),
         else => return 0,
     }
 }
@@ -178,7 +180,7 @@ pub const Backlight = struct {
 };
 
 pub const Wifi = struct {
-    ssid: std.ArrayList(u8),
+    ssid: [32]u8,
     signal: i16,
     pub fn query(comptime wifi_device: []const u8) Wifi {
         const allocator = gpa.allocator();
@@ -187,7 +189,7 @@ pub const Wifi = struct {
         };
         var wifi_data_raw = blk: {
             break :blk exec_cmd(allocator, &iw_argv, 1024) catch {
-                return empty_wifi_class(allocator);
+                return empty_wifi_class();
             };
         };
         defer wifi_data_raw.deinit(allocator);
@@ -203,8 +205,8 @@ pub const Wifi = struct {
             if(wifi_ssid_end != null) {
                 wifi_ssid = wifi_data_raw.items[wifi_ssid_start.?+6..
                     wifi_ssid_start.?+6+wifi_ssid_end.?];
-            } else {return empty_wifi_class(allocator);}
-        } else {return empty_wifi_class(allocator);}
+            } else {return empty_wifi_class();}
+        } else {return empty_wifi_class();}
 
 
         var wifi_signal:i16 = 0;
@@ -227,28 +229,32 @@ pub const Wifi = struct {
                             } 
                         )
                     );
-            } else {return empty_wifi_class(allocator);}
-        } else {return empty_wifi_class(allocator);}
+            } else {return empty_wifi_class();}
+        } else {return empty_wifi_class();}
 
         var wf = Wifi {
-            .ssid = std.ArrayList(u8).initCapacity(allocator,wifi_ssid.len)
-                catch {unreachable;},
+            .ssid = std.mem.zeroes([32]u8),
             .signal = wifi_signal,
         };
-        wf.ssid.appendSlice(wifi_ssid) catch {unreachable;};
+        
+        for(0..wifi_ssid.len) |i| {
+            if (i > wf.ssid.len) { break;} 
+            wf.ssid[i] = wifi_ssid[i];
+        }
         return wf;
     }
-    pub fn deinit(self:Wifi) void {
-        self.ssid.deinit();
-    }
 
-    fn empty_wifi_class(allocator: std.mem.Allocator) Wifi {
-        var ssid = std.ArrayList(u8).initCapacity(allocator,4) catch {unreachable;};
-        ssid.appendSlice("n\\a") catch {unreachable;};
-            return Wifi {
-                .ssid = ssid,
+    fn empty_wifi_class() Wifi {
+        var wf = Wifi {
+                .ssid = undefined,
                 .signal = 0,
         };
+        const s = "n\\a";
+        for(0..s.len) |i| {
+            wf.ssid[i] = s[i];
+        }
+        return wf;
+
     }
 
 };
