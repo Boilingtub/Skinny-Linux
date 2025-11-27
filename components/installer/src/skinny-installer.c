@@ -67,6 +67,12 @@ void InstallextraPackages() {
       system("ln -s $HOME/.local/bin/zen-browser/zen $HOME/.local/bin/zen");
       system("rm -rf zen.linux-x86_64.tar.xz");
     } 
+    printf("would you like to enable pipewire-pulse? (Yes/No) \n >> ");
+    if(getYesNo() == true) {
+      system("sudo mkdir -p /etc/pipewire/pipewire.conf.d");
+      system("sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/");
+    }
+
 }
 
 int main() {
@@ -123,6 +129,9 @@ int main() {
     for(int i = 0;i < gitTarArchivescount;i++) { 
         installTarArchive(gitTarArchives[i]);
     }
+
+    system("sudo mkdir -p /etc/pipewire/pipewire.conf.d");
+    system("sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/");
 
     InstallextraPackages();
 
