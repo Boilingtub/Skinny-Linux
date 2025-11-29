@@ -1,0 +1,9 @@
+attachbottom
+autostart
+ipc
+pertag
+ipcpertag
+tearing [sf]
+cfact [sf]
+xwayland-handle-minimize [sf]
+

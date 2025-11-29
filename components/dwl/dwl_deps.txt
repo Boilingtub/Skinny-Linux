@@ -1,0 +1,1 @@
+gcc make patch libinput-devel wayland-devel wayland-protocols wayland-scanner++ wlroots0.19-devel libxkbcommon-devel pkg-config libxcb-devel pixman-devel fcft-devel
