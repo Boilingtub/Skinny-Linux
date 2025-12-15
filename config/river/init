@@ -14,7 +14,7 @@ wallpaper -reload &
 pipewire &
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super T spawn foot
-riverctl map normal Super R spawn wmenu-run
+riverctl map normal Super R spawn 'exec $(tofi-drun)'
 # Super+c to close the focused view
 riverctl map normal Super c close
 
