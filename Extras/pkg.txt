@@ -1,0 +1,1 @@
+Vulkan-Headers Vulkan-ValidationLayers alsa-pipewire libreoffice cmus cmus-ffmpeg ffmpeg curl exfat-utils fasm git grim htop intel-gmmlib intel-media-drivers jmtpfs linux-firmware-intel mesa-dri mesa-intel-dri mesa-vaapi mesa-vlkan-intel nnn sof-firmware tmux zip unzip wayland wlroots0.19     
